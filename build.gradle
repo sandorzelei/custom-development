@@ -1,0 +1,66 @@
+ext {
+    codebeamerVersion = "22.04-SP7"
+}
+
+allprojects {
+    group = 'com.intland.customization'
+    version = codebeamerVersion
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    compileJava.options.encoding = "UTF-8"
+    compileTestJava.options.encoding = "UTF-8"
+
+    compileJava {
+        options.deprecation = false
+        options.warnings = false
+        options.debug = true
+        options.debugOptions.debugLevel = "source,lines,vars"
+    }
+
+    compileTestJava {
+        options.deprecation = false
+        options.warnings = false
+        options.debug = true
+        options.debugOptions.debugLevel = "source,lines,vars"
+    }
+    
+    repositories {
+
+        mavenLocal()
+        mavenCentral()
+        
+        maven {
+            url "https://maven.codebeamer.com/3rdparty"
+        }
+
+        maven {
+            url "https://maven.codebeamer.com/release"
+        }
+
+        maven {
+            url "https://maven.codebeamer.com/snapshot"
+        }
+
+    }
+
+    dependencies {
+        implementation group: 'com.intland.codebeamer', name: 'cb', version: codebeamerVersion
+        implementation group: 'com.intland.codebeamer', name: 'cb-common', version: codebeamerVersion
+        
+        implementation group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+        implementation group: 'javax.annotation', name: 'javax.annotation-api', version: '1.3.2'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+}
