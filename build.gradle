@@ -1,5 +1,5 @@
 ext {
-    codebeamerVersion = "22.10-SP+"
+    codebeamerVersion = "2.0+"
 }
 
 allprojects {
@@ -54,7 +54,8 @@ subprojects {
     dependencies {
         implementation group: 'com.intland.codebeamer', name: 'cb', version: codebeamerVersion
         implementation group: 'com.intland.codebeamer', name: 'cb-common', version: codebeamerVersion
-        
+        implementation group: 'com.intland.codebeamer', name: 'cb-api-public', version: codebeamerVersion
+                
         implementation group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
         implementation group: 'javax.annotation', name: 'javax.annotation-api', version: '1.3.2'
     }

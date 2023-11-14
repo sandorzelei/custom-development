@@ -14,9 +14,9 @@ import com.my.codebeamer.jobs.MyJob;
 @Primary
 @Service
 public class ExtendedSchedulerManager extends SchedulerManager {
-
-	private Scheduler myScheduler;
 	
+	private Scheduler myScheduler;
+
 	@Autowired
 	public ExtendedSchedulerManager(Scheduler instanceScheduler, Scheduler concurrentScheduler,
 			Scheduler reportQuartzScheduler, Scheduler escalationScheduler, Scheduler documentExportScheduler,
@@ -27,24 +27,27 @@ public class ExtendedSchedulerManager extends SchedulerManager {
 			ParameterizedConcurrentSchedulerFactory parameterizedMonitoringConcurrentSchedulerFactory,
 			MonitoringDao monitoringDao, Scheduler computedUpdateScheduler, Scheduler workingSetScheduler,
 			Scheduler workingSetUpdateScheduler, Scheduler backgroundJobScheduler, Scheduler backgroundInitJobScheduler,
-			Scheduler backgroundJobExcelImportScheduler, Scheduler myScheduler) {
+			Scheduler backgroundJobExcelImportScheduler,
+			ParameterizedConcurrentSchedulerFactory parameterizedFlexLmLicenseAllocatorConcurrentSchedulerFactory,
+			Scheduler flexLmLicenseAllocatorScheduler, Scheduler myScheduler) {
 		super(instanceScheduler, concurrentScheduler, reportQuartzScheduler, escalationScheduler, documentExportScheduler,
 				remoteJiraSyncScheduler, remoteDoorsSyncScheduler, externalProviderScmSyncScheduler, monitoringScheduler,
 				monitoringConcurrentScheduler, deleteProjectScheduler, parameterizedConcurrentSchedulerFactory,
 				parameterizedMonitoringConcurrentSchedulerFactory, monitoringDao, computedUpdateScheduler, workingSetScheduler,
 				workingSetUpdateScheduler, backgroundJobScheduler, backgroundInitJobScheduler,
-				backgroundJobExcelImportScheduler);
+				backgroundJobExcelImportScheduler, parameterizedFlexLmLicenseAllocatorConcurrentSchedulerFactory,
+				flexLmLicenseAllocatorScheduler);
 		this.myScheduler = myScheduler;
 	}
-
+	
 	@Override
 	public Scheduler getScheduler(Class<? extends StopWatchJob> jobClass) {
-
+		
 		if (MyJob.class.isAssignableFrom(jobClass)) {
 			return myScheduler;
 		}
-
+		
 		return super.getScheduler(jobClass);
 	}
-
+	
 }

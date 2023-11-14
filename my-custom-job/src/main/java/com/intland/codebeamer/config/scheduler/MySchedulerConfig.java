@@ -58,14 +58,17 @@ public class MySchedulerConfig {
 			ParameterizedConcurrentSchedulerFactory parameterizedMonitoringConcurrentSchedulerFactory,
 			MonitoringDao monitoringDao, Scheduler computedUpdateScheduler, Scheduler workingSetScheduler,
 			Scheduler workingSetUpdateScheduler, Scheduler backgroundJobScheduler, Scheduler backgroundInitJobScheduler,
-			Scheduler backgroundJobExcelImportScheduler, Scheduler myScheduler) {
+			Scheduler backgroundJobExcelImportScheduler,
+			ParameterizedConcurrentSchedulerFactory parameterizedFlexLmLicenseAllocatorConcurrentSchedulerFactory,
+			Scheduler flexLmLicenseAllocatorScheduler, Scheduler myScheduler) {
 		return new ExtendedSchedulerManager(instanceScheduler, concurrentScheduler, reportQuartzScheduler,
 				escalationScheduler, documentExportScheduler, remoteJiraSyncScheduler, remoteDoorsSyncScheduler,
 				externalProviderScmSyncScheduler, monitoringScheduler, monitoringConcurrentScheduler,
 				deleteProjectScheduler, parameterizedConcurrentSchedulerFactory,
 				parameterizedMonitoringConcurrentSchedulerFactory, monitoringDao, computedUpdateScheduler,
 				workingSetScheduler, workingSetUpdateScheduler, backgroundJobScheduler, backgroundInitJobScheduler,
-				backgroundJobExcelImportScheduler, myScheduler);
+				backgroundJobExcelImportScheduler, parameterizedFlexLmLicenseAllocatorConcurrentSchedulerFactory,
+				flexLmLicenseAllocatorScheduler, myScheduler);
 	}
 
 }
