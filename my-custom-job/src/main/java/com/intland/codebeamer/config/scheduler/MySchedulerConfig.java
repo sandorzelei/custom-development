@@ -46,12 +46,12 @@ public class MySchedulerConfig {
 	public MyJobStarter myJobStarter(ScheduleStarter scheduleStarter) {
 		return new MyJobStarter(scheduleStarter);
 	}
-	
+
 	@Bean
 	@Primary
 	public SchedulerManager schedulerManager(Scheduler instanceScheduler, Scheduler concurrentScheduler,
-			Scheduler reportQuartzScheduler, Scheduler projectDeploymentExportScheduler, Scheduler escalationScheduler,
-			Scheduler documentExportScheduler, Scheduler remoteJiraSyncScheduler, Scheduler remoteDoorsSyncScheduler,
+			Scheduler reportQuartzScheduler, Scheduler escalationScheduler, Scheduler documentExportScheduler,
+			Scheduler remoteJiraSyncScheduler, Scheduler remoteDoorsSyncScheduler,
 			Scheduler externalProviderScmSyncScheduler, Scheduler monitoringScheduler,
 			Scheduler monitoringConcurrentScheduler, Scheduler deleteProjectScheduler,
 			ParameterizedConcurrentSchedulerFactory parameterizedConcurrentSchedulerFactory,
@@ -60,9 +60,9 @@ public class MySchedulerConfig {
 			Scheduler workingSetUpdateScheduler, Scheduler backgroundJobScheduler, Scheduler backgroundInitJobScheduler,
 			Scheduler backgroundJobExcelImportScheduler, Scheduler myScheduler) {
 		return new ExtendedSchedulerManager(instanceScheduler, concurrentScheduler, reportQuartzScheduler,
-				projectDeploymentExportScheduler, escalationScheduler, documentExportScheduler, remoteJiraSyncScheduler,
-				remoteDoorsSyncScheduler, externalProviderScmSyncScheduler, monitoringScheduler,
-				monitoringConcurrentScheduler, deleteProjectScheduler, parameterizedConcurrentSchedulerFactory,
+				escalationScheduler, documentExportScheduler, remoteJiraSyncScheduler, remoteDoorsSyncScheduler,
+				externalProviderScmSyncScheduler, monitoringScheduler, monitoringConcurrentScheduler,
+				deleteProjectScheduler, parameterizedConcurrentSchedulerFactory,
 				parameterizedMonitoringConcurrentSchedulerFactory, monitoringDao, computedUpdateScheduler,
 				workingSetScheduler, workingSetUpdateScheduler, backgroundJobScheduler, backgroundInitJobScheduler,
 				backgroundJobExcelImportScheduler, myScheduler);
