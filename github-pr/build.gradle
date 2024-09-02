@@ -1,0 +1,7 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    implementation 'org.kohsuke:github-api:1.123'
+}
